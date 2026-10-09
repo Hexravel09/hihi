@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LOVE.exe — For Wifey</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         BACKGROUND
+    ========================================================== -->
+
+    <div id="stars"></div>
+    <div id="hearts"></div>
+
+    <div id="toast"></div>
+
+    <!-- Progress -->
+    <div class="progress-container">
+        <div id="progress"></div>
+    </div>
+
+    <!-- =========================================================
+         SCREEN 0 — BOOT
+    ========================================================== -->
+
+    <section class="screen active" id="screen0">
+
+        <div class="boot">
+
+            <div class="boot-logo">♥</div>
+
+            <h1>LOVE<span>.exe</span></h1>
+
+            <div class="terminal">
+                <p id="bootText"></p>
+            </div>
+
+            <button class="main-btn hidden" id="startBtn">
+                INITIALIZE
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SCREEN 1 — DON'T CLICK THE HEART
+    ========================================================== -->
+
+    <section class="screen" id="screen1">
+
+        <div class="danger-screen">
+
+            <div class="classified">⚠ CLASSIFIED</div>
+
+            <h2>Whatever you do...</h2>
+
+            <h1 class="danger-title">
+                DON'T CLICK THE HEART.
+            </h1>
+
+            <p>
+                Seriously.
+            </p>
+
+            <button id="dangerHeart" class="giant-heart">
+                ❤️
+            </button>
+
+            <p id="dangerMessage" class="danger-message"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SCREEN 2 — LOVE EXPERIMENT
+    ========================================================== -->
+
+    <section class="screen" id="screen2">
+
+        <div class="card experiment">
+
+            <div class="small-label">
+                EXPERIMENT #001
+            </div>
+
+            <h1>LOVE EXPERIMENT</h1>
+
+            <p class="subtitle">
+                Subject: <b>Nicoleh</b>
+            </p>
+
+            <div class="experiment-box">
+
+                <p>Objective:</p>
+
+                <p class="objective">
+                    Determine why Hex is
+                    hopelessly obsessed with her.
+                </p>
+
+                <div class="test" id="experimentTests">
+
+                    <p>❤️ Heart Rate ........ <span>---</span></p>
+                    <p>🧠 Brain Activity .... <span>---</span></p>
+                    <p>😊 Happiness .......... <span>---</span></p>
+                    <p>💭 Thoughts ........... <span>---</span></p>
+                    <p>❤️ Love ............... <span>---</span></p>
+
+                </div>
+
+            </div>
+
+            <button class="main-btn" id="runExperiment">
+                RUN EXPERIMENT
+            </button>
+
+            <div id="experimentResult"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SCREEN 3 — LOCK 01
+    ========================================================== -->
+
+    <section class="screen" id="screen3">
+
+        <div class="lock-card">
+
+            <div class="lock-number">
+                LOCK 01
+            </div>
+
+            <div class="lock-icon">🔒</div>
+
+            <h1>THE BEGINNING</h1>
+
+            <p>
+                Every story has a beginning.
+            </p>
+
+            <p>
+                Where did ours begin?
+            </p>
+
+            <div class="choices">
+
+                <button class="choice" data-answer="wrong">
+                    Minecraft
+                </button>
+
+                <button class="choice" data-answer="correct">
+                    VALORANT
+                </button>
+
+                <button class="choice" data-answer="wrong">
+                    Facebook
+                </button>
+
+                <button class="choice" data-answer="wrong">
+                    Discord
+                </button>
+
+            </div>
+
+            <p class="lock-status"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SCREEN 4 — LOCK 02
+    ========================================================== -->
+
+    <section class="screen" id="screen4">
+
+        <div class="lock-card">
+
+            <div class="lock-number">
+                LOCK 02
+            </div>
+
+            <div class="lock-icon">🔒</div>
+
+            <h1>THE MEMORY</h1>
+
+            <p>
+                One of these memories belongs to us.
+            </p>
+
+            <div class="memory-choices">
+
+                <!--
+                    REPLACE THESE IMAGE PATHS WITH YOUR OWN.
+                    Example:
+                    images/memory1.jpg
+                -->
+
+                <button class="memory-choice wrong-memory">
+                    <div class="fake-photo">?</div>
+                    <span>MEMORY A</span>
+                </button>
+
+                <button class="memory-choice correct-memory">
+                    <div class="fake-photo">❤️</div>
+                    <span>MEMORY B</span>
+                </button>
+
+                <button class="memory-choice wrong-memory">
+                    <div class="fake-photo">?</div>
+                    <span>MEMORY C</span>
+                </button>
+
+            </div>
+
+            <p class="lock-status"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SCREEN 5 — LOCK 03
+    ========================================================== -->
+
+    <section class="screen" id="screen5">
+
+        <div class="lock-card">
+
+            <div class="lock-number">
+                LOCK 03
+            </div>
+
+            <div class="lock-icon">🔐</div>
+
+            <h1>THE PASSWORD</h1>
+
+            <p>
+                Something only the two of us should know.
+            </p>
+
+            <div class="password-clue">
+
+                <span>CLUE:</span>
+
+                <p>
+                    The day our little story officially
+                    became ours.
+                </p>
+
+                <small>
+                    Month + Day
+                </small>
+
+            </div>
+
+            <input
+                id="passwordInput"
+                class="password-input"
+                placeholder="ENTER PASSWORD"
+                maxlength="4"
+            >
+
+            <button class="main-btn" id="passwordBtn">
+                UNLOCK
+            </button>
+
+            <p id="passwordMessage"></p>
+
+        </div>
+
+    </section>
+<!-- =========================================================
+     SCREEN 6 — LOCK 04
+========================================================= -->
+
+<section class="screen" id="screen6">
+
+    <div class="lock-card">
+
+        <div class="lock-number">
+            LOCK 04
+        </div>
+
+        <div class="lock-icon">❤️</div>
+
+        <h1>THE CHOICE</h1>
+
+        <p>
+            A very important question.
+        </p>
+
+        <p>
+            Who loves who more?
+        </p>
+
+        <div class="choices">
+
+            <button class="choice" id="meBtn">
+                ME ❤️
+            </button>
+
+            <button class="choice" id="youBtn">
+                YOU ❤️
+            </button>
+
+        </div>
+
+        <p id="choiceResult"></p>
+
+    </div>
+
+</section>
+    <!-- =========================================================
+         SCREEN 7 — LOCK 05
+    ========================================================== -->
+
+    <section class="screen" id="screen7">
+
+        <div class="timeline-card">
+
+            <div class="lock-number">
+                LOCK 05
+            </div>
+
+            <h1>THE TIMELINE</h1>
+
+            <p>
+                Scroll through the evidence.
+            </p>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <span>01</span>
+                    <div>
+                        <h3>THE BEGINNING</h3>
+                        <p>
+                            Two people met through VALORANT.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span>02</span>
+                    <div>
+                        <h3>THE CHATS</h3>
+                        <p>
+                            One conversation became another.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span>03</span>
+                    <div>
+                        <h3>THE CALLS</h3>
+                        <p>
+                            Somehow the calls started lasting longer.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span>04</span>
+                    <div>
+                        <h3>THE FEELINGS</h3>
+                        <p>
+                            Somewhere along the way,
+                            you became special.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span>05</span>
+                    <div>
+                        <h3>US</h3>
+                        <p>
+                            And now there's an "us."
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="main-btn" id="timelineBtn">
+                CONTINUE
+            </button>
+
+        </div>
+
+    </section>
+
+
+<!-- =========================================================
+     SCREEN 8 — LOCK 06
+========================================================= -->
+
+<section class="screen hidden-heart-screen" id="screen8">
+
+    <div class="lock-card">
+
+        <div class="lock-number">
+            LOCK 06
+        </div>
+
+        <h1>THE HIDDEN MESSAGE</h1>
+
+        <p>
+            Somewhere on this screen...
+        </p>
+
+        <p class="search-hint">
+            There is something you're supposed to find.
+        </p>
+
+        <p class="tiny-hint">
+            Don't click everything. Look carefully. 👀
+        </p>
+
+
+        <div class="search-area">
+
+            <div class="fake-window">
+
+                <div class="window-bar">
+
+                    <span>
+                        🔴 🟡 🟢 &nbsp; MEMORY_DATABASE.exe
+                    </span>
+
+                </div>
+
+
+                <div class="window-content">
+
+                    <p>
+                        > ACCESSING MEMORY DATABASE...
+                    </p>
+
+                    <p>
+                        > Searching memories...
+                    </p>
+
+                    <p>
+                        > Searching conversations...
+                    </p>
+
+                    <p>
+                        > Searching important moments...
+                    </p>
+
+                    <br>
+
+                    <div class="fake-files">
+
+                        <div class="fake-file">
+                            📁 memories
+                        </div>
+
+                        <div class="fake-file">
+                            📁 conversations
+                        </div>
+
+                        <div class="fake-file">
+                            📁 photos
+                        </div>
+
+                        <div class="fake-file">
+                            📄 secret.txt
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <p class="system-warning">
+                        > SYSTEM MESSAGE:
+                    </p>
+
+                    <p>
+                        Something important is hidden
+                        somewhere in this system.
+                    </p>
+
+                </div>
+
+
+                <!--
+                    THIS IS THE REAL HIDDEN HEART.
+                    It is intentionally small.
+                -->
+
+                <button
+                    id="hiddenHeart"
+                    aria-label="Something hidden"
+                >
+                    ♥
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <p id="hiddenMessage"></p>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================================================
+         SCREEN 9 — UNIVERSE
+    ========================================================== -->
+
+    <section class="screen universe-screen" id="screen9">
+
+        <div class="universe">
+
+            <div class="universe-title">
+
+                <div class="lock-number">
+                    THE UNIVERSE
+                </div>
+
+                <h1>Find the stars.</h1>
+
+                <p>
+                    Every star represents a moment.
+                </p>
+
+            </div>
+
+            <div id="constellation">
+
+                <!-- Stars generated by JS -->
+
+            </div>
+
+            <p id="starCounter">
+                0 / 7 stars discovered
+            </p>
+
+            <div id="universeMessage"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SCREEN 10 — MEMORY MACHINE
+    ========================================================== -->
+
+    <section class="screen" id="screen10">
+
+        <div class="memory-machine">
+
+            <div class="lock-number">
+                MEMORY MACHINE
+            </div>
+
+            <h1>SEARCH THE DATABASE</h1>
+
+            <p>
+                Enter a year.
+            </p>
+
+            <input
+                id="yearInput"
+                class="password-input"
+                placeholder="2026"
+                maxlength="4"
+            >
+
+            <button class="main-btn" id="searchMemory">
+                SEARCH
+            </button>
+
+            <div id="memoryResult"></div>
+
+        </div>
+
+    </section>
+
+
+<!-- =========================================================
+     SCREEN 11 — THE WEBSITE THAT KNOWS HER
+========================================================= -->
+
+<section class="screen" id="screen11">
+
+    <div class="prediction-card" id="predictionCard">
+
+        <div class="lock-number">
+            UNKNOWN SYSTEM
+        </div>
+
+        <h1 id="predictionTitle">
+            This You?
+        </h1>
+
+        <p id="predictionQuestion">
+            What's your favorite color?
+        </p>
+
+        <!-- =================================================
+             QUESTION 1 — FAVORITE COLOR
+        ================================================== -->
+
+        <div
+            class="prediction-buttons"
+            id="predictionButtons"
+        >
+
+            <button class="prediction-btn color-choice">
+                🔴 Red
+            </button>
+
+            <button class="prediction-btn color-choice">
+                🟠 Orange
+            </button>
+
+            <button class="prediction-btn color-choice">
+                🟡 Yellow
+            </button>
+
+            <button class="prediction-btn color-choice">
+                🟢 Green
+            </button>
+
+            <button class="prediction-btn color-choice">
+                🔵 Blue
+            </button>
+
+            <button class="prediction-btn color-choice">
+                🟣 Purple
+            </button>
+
+            <button class="prediction-btn color-choice">
+                🩷 Pink
+            </button>
+
+        </div>
+
+        <p id="predictionResult"></p>
+
+        <div
+            id="predictionMemory"
+            class="prediction-memory"
+        ></div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     SCREEN 12 — SOMETHING IS FOLLOWING YOU
+========================================================= -->
+
+<section class="screen follow-screen" id="screen12">
+
+    <div class="follow-card">
+
+        <div class="lock-number">
+            UNKNOWN ENTITY DETECTED
+        </div>
+
+        <h1>SOMETHING IS FOLLOWING YOU.</h1>
+
+        <p id="followText">
+            Move your mouse.
+        </p>
+
+        <div
+            id="followCounter"
+            class="follow-counter"
+        >
+            0 hearts detected.
+        </div>
+
+        <div
+            id="followMessage"
+            class="follow-message"
+        ></div>
+
+        <button
+            class="main-btn hidden"
+            id="followContinue"
+        >
+            CONTINUE
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SCREEN 13 — FINAL PASSWORD
+========================================================= -->
+
+<section class="screen final-password-screen" id="screen13">
+
+    <div class="password-final-card">
+
+        <div class="lock-number">
+            FINAL FILE
+        </div>
+
+        <div class="final-lock-icon">
+            🔐
+        </div>
+
+        <h1>FINAL FILE LOCKED.</h1>
+
+        <p class="terminal-line">
+            PASSWORD REQUIRED.
+        </p>
+
+        <div class="final-clues">
+
+            <p>
+                The answer has been hiding here the entire time.
+            </p>
+
+            <p>
+                You have already seen the clues.
+            </p>
+
+            <p>
+                <span>MONTH</span> + <span>DAY</span>
+            </p>
+
+            <p>
+                Something important happened on that date.
+            </p>
+
+        </div>
+
+        <input
+            id="finalPasswordInput"
+            class="password-input"
+            type="text"
+            inputmode="numeric"
+            maxlength="4"
+            placeholder="ENTER 4 DIGITS"
+        >
+
+        <button
+            class="main-btn"
+            id="finalPasswordBtn"
+        >
+            UNLOCK FINAL FILE
+        </button>
+
+        <p id="finalPasswordMessage"></p>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     SCREEN 14 — THE INFINITE LETTER
+========================================================= -->
+
+<section class="screen infinite-letter-screen" id="screen14">
+
+    <div class="infinite-letter-card">
+
+        <div class="lock-number">
+            FINAL FILE — DECRYPTED
+        </div>
+
+        <div
+            id="letterProgress"
+            class="letter-progress"
+        >
+            MESSAGE 01
+        </div>
+
+        <div
+            id="letterText"
+            class="letter-text"
+        >
+            I didn't know...
+        </div>
+
+        <button
+            class="main-btn"
+            id="nextLetterBtn"
+        >
+            NEXT →
+        </button>
+
+        <div
+            id="finalLetterEnding"
+            class="final-letter-ending"
+        >
+
+            <h1>
+                Happy Monthsary, Wifey. ❤️
+            </h1>
+
+            <p>
+                My Nicoleh,
+            </p>
+
+            <p>
+                Somehow, a random game of VALORANT
+                led me to you.
+            </p>
+
+            <p>
+                And now you're no longer just someone
+                I met online.
+            </p>
+
+            <p>
+                You're someone I love.
+            </p>
+
+            <p>
+                Someone I want to keep choosing.
+            </p>
+
+            <p>
+                Someone who became a very important
+                part of my life.
+            </p>
+
+            <p>
+                Thank you for every laugh,
+                every conversation,
+                every little moment,
+                every lambing,
+                and every memory we've made.
+            </p>
+
+            <p>
+                Out of billions of people...
+            </p>
+
+            <p class="big-line">
+                I somehow found you.
+            </p>
+
+            <p>
+                And I'm really glad I did.
+            </p>
+
+            <h2>
+                Happy Monthsary, my baby. ❤️
+            </h2>
+
+            <p class="signature">
+                — Hex
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- SCREEN 14 -->
+<section class="screen infinite-letter-screen" id="screen14">
+    ...
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
